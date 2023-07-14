@@ -35,4 +35,4 @@ Para fazer o deploy configure as credenciais da `AWS`:
 - AWS_SECRET_ACCESS_KEY
 - AWS_REGION
 
-> No arquivo `serverless.yaml` está definido a API Gateway, estão pegue os ids da sua API Gateway e coloque nas envs REST_API_ID e REST_API_ROOT_RESOURCE_ID
+> No arquivo `serverless.yaml` está definido a API Gateway, então pegue os ids da sua API Gateway e coloque nas envs REST_API_ID e REST_API_ROOT_RESOURCE_ID
