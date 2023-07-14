@@ -1,0 +1,44 @@
+service: base-project
+
+provider:
+  name: aws
+  runtime: python3.8
+  region: 'us-east-1'
+  stage: 'dev'
+  memorySize: 512
+  apiGateway:
+    restApiId: ${env:REST_API_ID}
+    restApiRootResourceId: ${env:REST_API_ROOT_RESOURCE_ID}
+
+useDotenv: true
+
+package:
+  individually: true
+  patterns:
+    - 'geodata/**'
+    - '!node_modules/**'
+    - '!.venv/**'
+    - '!__pycache__/**'
+
+plugins:
+  - serverless-wsgi
+  - serverless-python-requirements
+  - serverless-offline
+
+functions:
+
+  example-get:
+    handler: src/app.example_get
+    timeout: 10
+    events:
+      - http:
+          path: /example-get
+          method: get
+
+  example-post:
+    handler: src/app.example_post
+    timeout: 10
+    events:
+      - http:
+          path: /example-post
+          method: post
