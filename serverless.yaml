@@ -35,6 +35,13 @@ functions:
           path: /example-get
           method: get
 
+  example-scheduling:
+    handler: src/app.scheduling
+    timeout: 10
+    events:
+      - schedule:
+          rate: rate(1 minute)
+      
   example-post:
     handler: src/app.example_post
     timeout: 10
